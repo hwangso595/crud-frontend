@@ -12,7 +12,7 @@ export default class DeletedItemList extends Component {
     };
   }
   componentDidMount() {
-    axios.get(config.backend+'/items/')
+    axios.get(config.backend+'/items/deleted-items')
       .then(res => {
         this.setState({
           items: res.data
