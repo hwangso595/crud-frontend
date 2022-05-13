@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import config from '../config'
 export default class EditItem extends Component {
   constructor(props) {
     super(props)
@@ -15,7 +16,7 @@ export default class EditItem extends Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/items/edit-item/' + this.props.match.params.id)
+    axios.get(config.backend+'/items/edit-item/' + this.props.match.params.id)
       .then(res => {
         this.setState({
           name: res.data.name,

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import config from '../config'
+
 export default class ItemTableRow extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +19,7 @@ export default class ItemTableRow extends Component {
         const itemObject = {
             deleteMessage: this.state.deleteMessage
         };
-        axios.delete('http://localhost:4000/items/delete-item/' + this.props.obj._id, {data: itemObject})
+        axios.delete(config.backend+'/items/delete-item/' + this.props.obj._id, {data: itemObject})
             .then((res) => {
                 console.log('Item successfully deleted!')
                 window.location.reload(false);

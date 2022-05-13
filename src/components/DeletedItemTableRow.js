@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import config from '../config';
 export default class DeletedItemTableRow extends Component {
     constructor(props) {
         super(props);
         this.undeleteItem = this.undeleteItem.bind(this);
     }
     undeleteItem() {
-        axios.put('http://localhost:4000/items/undelete-item/' + this.props.obj._id)
+        axios.put(config.backend+'/items/undelete-item/' + this.props.obj._id)
             .then((res) => {
                 console.log('Item successfully undeleted!')
                 window.location.reload(false);

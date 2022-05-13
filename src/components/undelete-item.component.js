@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import DeletedItemTableRow from './DeletedItemTableRow';
+import config from '../config'
 
 export default class DeletedItemList extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class DeletedItemList extends Component {
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/items/')
+    axios.get(config.backend+'/items/')
       .then(res => {
         this.setState({
           items: res.data

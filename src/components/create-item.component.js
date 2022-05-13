@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import config from '../config';
 export default class CreateItem extends Component {
   constructor(props) {
     super(props)
@@ -27,7 +28,7 @@ export default class CreateItem extends Component {
       name: this.state.name,
       quantity: this.state.quantity
     };
-    axios.post('http://localhost:4000/items/create-item', ItemObject)
+    axios.post(config.backend+'/items/create-item', ItemObject)
       .then(res => console.log(res.data));
     this.setState({ name: '', quantity: ''})
   }
