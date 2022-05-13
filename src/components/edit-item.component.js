@@ -39,7 +39,7 @@ export default class EditItem extends Component {
       name: this.state.name,
       quantity: this.state.quantity
     };
-    axios.put('http://localhost:4000/items/update-item/' + this.props.match.params.id, itemObject)
+    axios.put(config.backend+'/items/update-item/' + this.props.match.params.id, itemObject)
       .then((res) => {
         console.log(res.data)
         console.log('Item successfully updated')
